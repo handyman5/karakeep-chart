@@ -19,7 +19,7 @@ the latest versions of the packages.  You can then run `helm search repo
 
 To install the <chart-name> chart:
 
-    helm install my-<chart-name> <alias>/<chart-name>
+    helm install my-<chart-name> karakeep-chart/karakeep
 
 To uninstall the chart:
 

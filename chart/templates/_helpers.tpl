@@ -95,9 +95,25 @@ Return the primary ingress host if enabled and defined; otherwise, return "local
 {{/*
 Return an env var definition for OPENAI_API_KEY if .Values.openAIApiKey is set.
 */}}
-{{- define "karakeep.openAIEnv" -}}
-{{- if .Values.openAIApiKey }}
+{{- define "karakeep.openaiApiKey" -}}
+{{- if .Values.openaiApiKey }}
 - name: OPENAI_API_KEY
-  value: {{ .Values.openAIApiKey | quote }}
+  value: {{ .Values.openaiApiKey | quote }}
+{{- end -}}
+{{- end }}
+
+{{/*
+Return an env var definition for OLLAMA_BASE_URL if .Values.ollamaBaseURL is set.
+*/}}
+{{- define "karakeep.ollamaConfig" -}}
+{{- if (hasKey .Values.ollama "baseURL") }}
+- name: OLLAMA_BASE_URL
+  value: {{ .Values.ollama.baseURL | quote }}
+- name: OLLAMA_HOST
+  value: {{ .Values.ollama.baseURL | quote }}
+- name: INFERENCE_TEXT_MODEL
+  value: {{ .Values.ollama.inferenceTextModel | quote }}
+- name: INFERENCE_IMAGE_MODEL
+  value: {{ .Values.ollama.inferenceImageModel | quote }}
 {{- end -}}
 {{- end }}

@@ -137,6 +137,13 @@ affinity: {}
 
 #openaiApiKey: abcd1234568
 
+# web:
+#   extraEnv:
+#     DATA_DIR: /data
+
+# chrome:
+#   extraEnv: {}
+
 ollama:
   # baseURL: http://chart-example.local
   inferenceTextModel: mistral

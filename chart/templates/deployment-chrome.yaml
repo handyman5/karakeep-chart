@@ -50,6 +50,15 @@ spec:
             - --remote-debugging-address=0.0.0.0
             - --remote-debugging-port=9222
             - --hide-scrollbars
+          {{- if and .Values.chrome .Values.chrome.extraEnv }}
+          {{- with .Values.chrome.extraEnv }}
+          env:
+          {{- range $key, $value := . }}
+            - name: {{ $key }}
+              value: {{ $value | quote }}
+          {{- end }}
+          {{- end }}
+          {{- end }}
           ports:
             - name: remote
               containerPort: 9222

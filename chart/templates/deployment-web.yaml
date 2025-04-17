@@ -46,6 +46,14 @@ spec:
           env:
             {{- include "karakeep.openaiApiKey" . | trim | nindent 12 }}
             {{- include "karakeep.ollamaConfig" . | trim | nindent 12 }}
+            {{- if and .Values.web .Values.web.extraEnv }}
+            {{- with .Values.web.extraEnv }}
+            {{- range $key, $value := . }}
+            - name: {{ $key }}
+              value: {{ $value | quote }}
+            {{- end }}
+            {{- end }}
+            {{- end }}
             - name: MEILI_ADDR
               value: http://karakeep-meilisearch:7700
             - name: BROWSER_WEB_URL

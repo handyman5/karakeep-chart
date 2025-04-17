@@ -137,7 +137,8 @@ affinity: {}
 
 #openaiApiKey: abcd1234568
 
-# web environment variable config reference:
+# web environment variable config references:
+# https://docs.karakeep.app/configuration/
 # https://github.com/karakeep-app/karakeep/blob/main/packages/shared/config.ts
 
 # web:

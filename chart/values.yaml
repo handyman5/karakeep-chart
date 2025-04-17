@@ -137,6 +137,9 @@ affinity: {}
 
 #openaiApiKey: abcd1234568
 
+# web environment variable config reference:
+# https://github.com/karakeep-app/karakeep/blob/main/packages/shared/config.ts
+
 # web:
 #   extraEnv:
 #     DATA_DIR: /data
@@ -145,7 +148,7 @@ affinity: {}
 #   extraEnv: {}
 
 ollama:
-  # baseURL: http://chart-example.local
+  # baseURL: http://ollama-service.local
   inferenceTextModel: mistral
   inferenceImageModel: llava
 

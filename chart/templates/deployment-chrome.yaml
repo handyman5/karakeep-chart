@@ -71,11 +71,14 @@ spec:
             initialDelaySeconds: 1
             failureThreshold: 60
           livenessProbe:
-            httpGet:
-              path: /
-              port: remote
+            exec:
+              command:
+                - sh
+                - '-c'
+                - find /proc/stat -mmin -5 | grep .
+            failureThreshold: 1
             periodSeconds: 10
-            initialDelaySeconds: 0
+            initialDelaySeconds: 5
           readinessProbe:
             httpGet:
               path: /
